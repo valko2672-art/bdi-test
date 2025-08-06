@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шкала депрессии Бека</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; color: #333; }
+    h1 { text-align: center; }
+    form { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .question { margin-bottom: 20px; }
+    .question p { font-weight: bold; margin-bottom: 10px; }
+    label { display: block; margin-bottom: 5px; }
+    input[type="text"], input[type="email"] { width: 100%; padding: 8px; margin-top: 4px; }
+    button { display: block; margin: 20px auto; padding: 10px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+    #result { margin-top: 20px; text-align: center; font-size: 18px; font-weight: bold; }
+    @media (max-width: 600px) { body { padding: 10px; } form { padding: 15px; } }
+  </style>
+</head>
+<body>
+  <h1>Шкала депрессии Бека</h1>
+  <form id="bdiForm" action="https://script.google.com/macros/s/AKfycbzXLgRsLXpmONu7g50Ky9QSJIrC3tPBQsOQN-yoyRihVcseunuEO1t5wuDhkfEbDJk4/exec" method="POST">
+
+<div class="question">
+  <p>Введите ваше имя:</p>
+  <input type="text" name="name" placeholder="Ваше имя" required>
+</div>
+
+<div class="question">
+  <p>Введите ваш e-mail или номер телефона:</p>
+  <input type="text" name="contact" placeholder="email@example.com или +79001234567" required>
+</div>
+
+<div class="question">
+  <p>1. Печаль</p>
+  <label><input type="radio" name="q1" value="0"> Я не чувствую себя печальным</label>
+  <label><input type="radio" name="q1" value="1"> Я чувствую себя подавленным чаще обычного</label>
+  <label><input type="radio" name="q1" value="2"> Я печален все время</label>
+  <label><input type="radio" name="q1" value="3"> Я так печален и несчастен, что не могу этого вынести</label>
+</div>
+
+<input type="hidden" name="score" id="hiddenScore">
+<input type="hidden" name="interpretation" id="hiddenInterpretation">
+<button type="button" onclick="calculateBDI()">Подсчитать</button>
+<div id="result"></div>
+</form>
+<script>
+function calculateBDI() {
+  const form = document.getElementById('bdiForm');
+  let total = 0;
+  for (let i = 1; i <= 1; i++) {
+    const options = form['q' + i];
+    if (!options) continue;
+    let answered = false;
+    if (options.length) {
+      for (let opt of options) {
+        if (opt.checked) {
+          total += parseInt(opt.value);
+          answered = true;
+        }
+      }
+    } else {
+      if (options.checked) {
+        total += parseInt(options.value);
+        answered = true;
+      }
+    }
+    if (!answered) {
+      alert(`Пожалуйста, ответьте на вопрос №${i}`);
+      return;
+    }
+  }
+  let interpretation = '';
+  if (total <= 13) interpretation = 'Минимальная депрессия (норма)';
+  else if (total <= 19) interpretation = 'Лёгкая депрессия';
+  else if (total <= 28) interpretation = 'Умеренная депрессия';
+  else interpretation = 'Тяжёлая депрессия';
+  document.getElementById('result').innerText = `Ваш результат: ${total} — ${interpretation}`;
+  document.getElementById('hiddenScore').value = total;
+  document.getElementById('hiddenInterpretation').value = interpretation;
+  form.submit();
+}
+</script>
+</body>
+</html>
