@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шкала депрессии Бека</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      form { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Шкала депрессии Бека</h1>
+  <form id="bdiForm" action="https://script.google.com/macros/s/AKfycbzXLgRsLXpmONu7g50Ky9QSJIrC3tPBQsOQN-yoyRihVcseunuEO1t5wuDhkfEbDJk4/exec" method="POST">
+    <div class="question">
+<p>1. Печаль</p>
+<label><input type="radio" name="q1" value="0"> Я не чувствую себя печальным</label>
+<label><input type="radio" name="q1" value="1"> Я чувствую себя подавленным чаще обычного</label>
+<label><input type="radio" name="q1" value="2"> Я печален все время</label>
+<label><input type="radio" name="q1" value="3"> Я так печален и несчастен, что не могу этого вынести</label>
+</div>
+<div class="question">
+<p>2. Пессимизм</p>
+<label><input type="radio" name="q2" value="0"> Я не испытываю уныния по поводу своего будущего</label>
+<label><input type="radio" name="q2" value="1"> Я чувствую, что меня ждёт неудача</label>
+<label><input type="radio" name="q2" value="2"> Я чувствую, что моё будущее безнадежно</label>
+<label><input type="radio" name="q2" value="3"> У меня нет будущего</label>
+</div>
+<div class="question">
+<p>3. Чувство вины</p>
+<label><input type="radio" name="q3" value="0"> Я не чувствую себя виноватым</label>
+<label><input type="radio" name="q3" value="1"> Я часто чувствую себя виноватым</label>
+<label><input type="radio" name="q3" value="2"> Я чувствую себя виноватым большую часть времени</label>
+<label><input type="radio" name="q3" value="3"> Я чувствую себя ужасным человеком, достойным наказания</label>
+</div>
+<div class="question">
+<p>4. Чувство наказания</p>
+<label><input type="radio" name="q4" value="0"> Я не чувствую, что заслуживаю наказания</label>
+<label><input type="radio" name="q4" value="1"> Я чувствую, что могу быть наказан</label>
+<label><input type="radio" name="q4" value="2"> Я ожидаю наказания</label>
+<label><input type="radio" name="q4" value="3"> Я чувствую, что уже наказан</label>
+</div>
+<div class="question">
+<p>5. Неприязнь к себе</p>
+<label><input type="radio" name="q5" value="0"> Я не разочарован в себе</label>
+<label><input type="radio" name="q5" value="1"> Я разочарован в себе</label>
+<label><input type="radio" name="q5" value="2"> Я ненавижу себя</label>
+<label><input type="radio" name="q5" value="3"> Я презираю себя</label>
+</div>
+<div class="question">
+<p>6. Самообвинение</p>
+<label><input type="radio" name="q6" value="0"> Я не чувствую себя хуже других</label>
+<label><input type="radio" name="q6" value="1"> Я критикую себя за ошибки и слабости</label>
+<label><input type="radio" name="q6" value="2"> Я всё время виню себя за свои недостатки</label>
+<label><input type="radio" name="q6" value="3"> Я обвиняю себя во всём плохом, что происходит</label>
+</div>
+<div class="question">
+<p>7. Суицидальные мысли</p>
+<label><input type="radio" name="q7" value="0"> У меня нет мыслей о самоубийстве</label>
+<label><input type="radio" name="q7" value="1"> У меня бывают мысли о самоубийстве, но я не совершу его</label>
+<label><input type="radio" name="q7" value="2"> Я хотел бы покончить с собой</label>
+<label><input type="radio" name="q7" value="3"> Я бы убил себя, если бы имел возможность</label>
+</div>
+<div class="question">
+<p>8. Плаксивость</p>
+<label><input type="radio" name="q8" value="0"> Я не плачу больше, чем обычно</label>
+<label><input type="radio" name="q8" value="1"> Я плачу чаще, чем раньше</label>
+<label><input type="radio" name="q8" value="2"> Я всё время плачу</label>
+<label><input type="radio" name="q8" value="3"> Раньше я мог плакать, но теперь не могу, даже если хочу</label>
+</div>
+<div class="question">
+<p>9. Раздражительность</p>
+<label><input type="radio" name="q9" value="0"> Я не более раздражителен, чем обычно</label>
+<label><input type="radio" name="q9" value="1"> Я более раздражителен, чем раньше</label>
+<label><input type="radio" name="q9" value="2"> Я раздражаюсь всё время</label>
+<label><input type="radio" name="q9" value="3"> Меня уже ничто не раздражает, потому что всё безразлично</label>
+</div>
+<div class="question">
+<p>10. Социальная замкнутость</p>
+<label><input type="radio" name="q10" value="0"> Я не потерял интерес к другим людям</label>
+<label><input type="radio" name="q10" value="1"> Меня меньше интересуют другие, чем раньше</label>
+<label><input type="radio" name="q10" value="2"> Я почти утратил интерес к другим</label>
+<label><input type="radio" name="q10" value="3"> Я полностью утратил интерес к другим людям</label>
+</div>
+<div class="question">
+<p>11. Нерешительность</p>
+<label><input type="radio" name="q11" value="0"> Я принимаю решения так же, как раньше</label>
+<label><input type="radio" name="q11" value="1"> Мне труднее принимать решения, чем раньше</label>
+<label><input type="radio" name="q11" value="2"> Мне гораздо труднее принимать решения</label>
+<label><input type="radio" name="q11" value="3"> Я больше не могу принимать решения</label>
+</div>
+<div class="question">
+<p>12. Изменение образа тела</p>
+<label><input type="radio" name="q12" value="0"> Я не чувствую, что выгляжу хуже, чем обычно</label>
+<label><input type="radio" name="q12" value="1"> Меня беспокоит, что я выгляжу старым или непривлекательным</label>
+<label><input type="radio" name="q12" value="2"> Я чувствую, что в моей внешности происходят неприятные изменения</label>
+<label><input type="radio" name="q12" value="3"> Я чувствую, что выгляжу ужасно</label>
+</div>
+<div class="question">
+<p>13. Снижение работоспособности</p>
+<label><input type="radio" name="q13" value="0"> Я работаю так же, как раньше</label>
+<label><input type="radio" name="q13" value="1"> Мне нужно приложить больше усилий, чтобы начать делать что-то</label>
+<label><input type="radio" name="q13" value="2"> Мне очень трудно заставить себя что-то делать</label>
+<label><input type="radio" name="q13" value="3"> Я совсем не могу выполнять никакую работу</label>
+</div>
+<div class="question">
+<p>14. Нарушения сна</p>
+<label><input type="radio" name="q14" value="0"> Я сплю так же хорошо, как обычно</label>
+<label><input type="radio" name="q14" value="1"> Сейчас я сплю хуже, чем раньше</label>
+<label><input type="radio" name="q14" value="2"> Я просыпаюсь на 1–2 часа раньше и с трудом засыпаю снова</label>
+<label><input type="radio" name="q14" value="3"> Я просыпаюсь за несколько часов до обычного и больше не могу заснуть</label>
+</div>
+<div class="question">
+<p>15. Усталость</p>
+<label><input type="radio" name="q15" value="0"> Я не устаю больше, чем обычно</label>
+<label><input type="radio" name="q15" value="1"> Я устаю быстрее, чем раньше</label>
+<label><input type="radio" name="q15" value="2"> Я устаю почти от любого действия</label>
+<label><input type="radio" name="q15" value="3"> Я слишком устал, чтобы что-либо делать</label>
+</div>
+<div class="question">
+<p>16. Снижение аппетита</p>
+<label><input type="radio" name="q16" value="0"> Мой аппетит не изменился</label>
+<label><input type="radio" name="q16" value="1"> У меня хуже аппетит, чем раньше</label>
+<label><input type="radio" name="q16" value="2"> Сейчас у меня нет аппетита</label>
+<label><input type="radio" name="q16" value="3"> Я совсем не чувствую голода</label>
+</div>
+<div class="question">
+<p>17. Потеря веса</p>
+<label><input type="radio" name="q17" value="0"> Мой вес не изменился</label>
+<label><input type="radio" name="q17" value="1"> Я потерял немного веса</label>
+<label><input type="radio" name="q17" value="2"> Я потерял более 2 кг</label>
+<label><input type="radio" name="q17" value="3"> Я потерял более 5 кг</label>
+</div>
+<div class="question">
+<p>18. Проблемы со здоровьем</p>
+<label><input type="radio" name="q18" value="0"> Меня не особенно тревожит моё здоровье</label>
+<label><input type="radio" name="q18" value="1"> Меня беспокоят боли или другие физические симптомы</label>
+<label><input type="radio" name="q18" value="2"> Я очень обеспокоен своим физическим состоянием</label>
+<label><input type="radio" name="q18" value="3"> Я не могу перестать думать о своих болячках</label>
+</div>
+<div class="question">
+<p>19. Потеря интереса к сексу</p>
+<label><input type="radio" name="q19" value="0"> Мой интерес к сексу не изменился</label>
+<label><input type="radio" name="q19" value="1"> Меня меньше интересует секс, чем раньше</label>
+<label><input type="radio" name="q19" value="2"> Сейчас секс меня почти не интересует</label>
+<label><input type="radio" name="q19" value="3"> Я полностью утратил интерес к сексу</label>
+</div>
+<div class="question">
+<p>20. Тревожность</p>
+<label><input type="radio" name="q20" value="0"> Я чувствую себя спокойно</label>
+<label><input type="radio" name="q20" value="1"> Иногда я чувствую напряжение</label>
+<label><input type="radio" name="q20" value="2"> Я почти всё время тревожусь</label>
+<label><input type="radio" name="q20" value="3"> Я не могу справиться с тревогой</label>
+</div>
+<div class="question">
+<p>21. Снижение самооценки</p>
+<label><input type="radio" name="q21" value="0"> Я уважаю себя</label>
+<label><input type="radio" name="q21" value="1"> Мне кажется, что я стал менее ценным человеком</label>
+<label><input type="radio" name="q21" value="2"> Я больше не верю в свои силы</label>
+<label><input type="radio" name="q21" value="3"> Я чувствую себя никчёмным</label>
+</div>
+
+    <div class="question">
+      <p>1. Печаль</p>
+      <label><input type="radio" name="q1" value="0"> Я не чувствую себя печальным</label>
+      <label><input type="radio" name="q1" value="1"> Я чувствую себя подавленным чаще обычного</label>
+      <label><input type="radio" name="q1" value="2"> Я печален все время</label>
+      <label><input type="radio" name="q1" value="3"> Я так печален и несчастен, что не могу этого вынести</label>
+    </div>
+
+    <div class="question">
+      <p>2. Пессимизм</p>
+      <label><input type="radio" name="q2" value="0"> Я не испытываю уныния по поводу своего будущего</label>
+      <label><input type="radio" name="q2" value="1"> Я чувствую, что меня ждёт неудача</label>
+      <label><input type="radio" name="q2" value="2"> Я чувствую, что моё будущее безнадежно</label>
+      <label><input type="radio" name="q2" value="3"> У меня нет будущего</label>
+    </div>
+
+    <div class="question">
+      <p>3. Чувство вины</p>
+      <label><input type="radio" name="q3" value="0"> Я не чувствую себя виноватым</label>
+      <label><input type="radio" name="q3" value="1"> Я часто чувствую себя виноватым</label>
+      <label><input type="radio" name="q3" value="2"> Я чувствую себя виноватым большую часть времени</label>
+      <label><input type="radio" name="q3" value="3"> Я чувствую себя ужасным человеком, достойным наказания</label>
+    </div>
+
+    <!-- Добавь остальные вопросы до q21 по аналогии -->
+
+    <input type="hidden" name="score" id="hiddenScore" value="">
+<input type="hidden" name="interpretation" id="hiddenInterpretation" value="">
+    <button type="button" onclick="calculateBDI()">Подсчитать</button>
+    <div id="result"></div>
+  </form>
+
+  <script>
+    function calculateBDI() {
+      const form = document.getElementById('bdiForm');
+      let total = 0;
+      for (let i = 1; i <= 21; i++) { // Изменить на 21 при полной версии
+        const options = form['q' + i];
+        if (!options) continue;
+        let answered = false;
+        if (options.length) {
+          for (let opt of options) {
+            if (opt.checked) {
+              total += parseInt(opt.value);
+              answered = true;
+            }
+          }
+        } else {
+          if (options.checked) {
+            total += parseInt(options.value);
+            answered = true;
+          }
+        }
+        if (!answered) {
+          alert(`Пожалуйста, ответьте на вопрос №${i}`);
+          return;
+        }
+      }
+
+      let interpretation = '';
+      if (total <= 13) interpretation = 'Минимальная депрессия (норма)';
+      else if (total <= 19) interpretation = 'Лёгкая депрессия';
+      else if (total <= 28) interpretation = 'Умеренная депрессия';
+      else interpretation = 'Тяжёлая депрессия';
+
+      document.getElementById('result').innerText = `Ваш результат: ${total} — ${interpretation}`;
+  document.getElementById('hiddenScore').value = total;
+  document.getElementById('hiddenInterpretation').value = interpretation;
+  form.submit();
+      document.getElementById('hiddenScore').value = `Сумма баллов: ${total}, Интерпретация: ${interpretation}`;
+
+      // Отправить форму
+      form.submit();
+    }
+  </script>
+</body>
+</html>
