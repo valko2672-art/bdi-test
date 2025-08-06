@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Шкала депрессии Бека</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #f9f9f9;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .telegram-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0088cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 30px;
+      font-size: 18px;
+      text-align: center;
+    }
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Шкала депрессии Бека</h1>
+  <form id="bdiForm">
+    <div id="questions"></div>
+    <button type="button" onclick="calculateScore()">Показать результат</button>
+  </form>
+  <div id="result" class="result"></div>
+  <div class="footer">
+    Нужна помощь? Задай вопрос или получи поддержку в Telegram<br/>
+    <a class="telegram-btn" href="https://t.me/dinaperu_klub" target="_blank">Перейти в Telegram-канал Дины Перу</a>
+  </div>
+  <script>
+    const questions = [
+      "Я не чувствую себя огорченным, печальным.",
+      "Будущее не вызывает у меня уныния.",
+      "Я не чувствую себя неудачником.",
+      "Я получаю столько же удовольствия от жизни, как и раньше.",
+      "Я не чувствую себя виноватым.",
+      "Я не чувствую, что меня наказывают.",
+      "Я не разочарован в себе.",
+      "Я не считаю себя хуже других.",
+      "Я удовлетворен сном.",
+      "Я не чувствую себя более уставшим, чем обычно.",
+      "У меня аппетит не хуже обычного.",
+      "Я не похудел в последнее время или потеря веса была незначительной.",
+      "Я беспокоюсь о своем здоровье не больше, чем обычно.",
+      "Я не ощущаю снижение интереса к другим людям.",
+      "Я принимаю решения так же легко, как и раньше.",
+      "Я не чувствую, что выгляжу хуже, чем обычно.",
+      "Я способен работать так же, как и раньше.",
+      "Я сплю так же хорошо, как и раньше.",
+      "Моё сексуальное влечение не уменьшилось.",
+      "Я не страдаю бессонницей.",
+      "Моя трудоспособность не снизилась."
+    ];
+
+    function renderQuestions() {
+      const container = document.getElementById("questions");
+      questions.forEach((q, index) => {
+        const qDiv = document.createElement("div");
+        qDiv.className = "question";
+        qDiv.innerHTML = `<p>${index + 1}. ${q}</p>` +
+          [0, 1, 2, 3].map(v => 
+            `<label><input type="radio" name="q${index}" value="${v}"> ${v}</label>`
+          ).join("<br>");
+        container.appendChild(qDiv);
+      });
+    }
+
+    function calculateScore() {
+      let total = 0;
+      for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selected) {
+          alert(`Пожалуйста, ответьте на вопрос ${i + 1}.`);
+          return;
+        }
+        total += parseInt(selected.value);
+      }
+
+      let interpretation = "";
+      if (total < 10) {
+        interpretation = "Минимальная депрессия (норма)";
+      } else if (total < 20) {
+        interpretation = "Легкая депрессия";
+      } else if (total < 30) {
+        interpretation = "Умеренная депрессия";
+      } else {
+        interpretation = "Тяжелая депрессия";
+      }
+
+      const resultText = `Ваш результат: ${total} баллов. <br>Интерпретация: <strong>${interpretation}</strong>.<br><br><em>Важно: Этот тест не заменяет консультацию с психологом. Обратитесь к специалисту за поддержкой.</em>`;
+      document.getElementById("result").innerHTML = resultText;
+    }
+
+    renderQuestions();
+  </script>
+</body>
+</html>
